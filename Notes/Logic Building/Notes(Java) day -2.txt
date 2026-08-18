@@ -1,0 +1,116 @@
+day -2
+
+ revision
+class - is a template
+object - is instance of a class
+main method declaration
+javac First.java - is file name
+java First
+
+
+Now: -
+Class :- class is a blueprint or a prototype from which object are created.
+class MyClass // class name with small later
+{
+  // class body
+}
+
+java has four access levels
+1 public - visible everywhere
+2 protected - visible in the same package, and to to subclasses elsewhere.
+3 (no modifier/ package-private) - visible only within the same package
+4 private - visible only within the declaring class itself
+
+Fields (member variable)
+example :
+ public class bicycle {
+	int cadence;
+	int gear;
+	int speed;
+
+	public static void main (String [] args){
+
+	Bicycle b1 = new Bicycle();
+	Bicycle b2 = new Bicycle();
+
+	}
+}
+
+Class Member vs Instance Member
+instance - it belongs to each object separately - every object has its own copy
+2. class - it belong to the class itself, not to            any one object . There is only one copy . shared by all instance
+
+Method  - it defines behaviour , what an object can do .
+1 a method declaration has six component:
+ - Modifiers
+ - Return types
+ - Method Name
+ - parameter list in parentheses
+ - an optional list of exception to throw
+ - the method body, enclosed  in brace
+
+Object - an object is the actual thing built from that blueprint.
+  - every object has three basic characteristics:- State, Behaviour & Identity
+
+Bits And Bytes - They are the smallest units of data in a computer.
+ - bit is a single binary digit with value 0 or 1
+ - 1 byte = 8 bits (256 values)
+ - bit stored as electric voltage
+ - ASCII A = 65
+       	 a = 97
+	 0 = 48
+
+Data type: - It specify the different types of values that are stored on the variables.
+ - java is a statically typed language
+ - Declaring = type and name ; eg : int age = 22;
+ - There are Two Types of Data types :
+	1 primitive , 2 Non primitive (reference)
+ - there are 8 primitive data types
+	(byte, short, int, float, long, double, char, boolean )
+ - Classes , array and string are reference types
+
+Variable : int age = 22;
+   int = data type, age = variable, 22 = value
+ - Types of variable :
+	- Local Variable → Declared inside a method.
+	- Instance Variable → Belongs to an object.(Inside class, outside method)
+	- Static Variable → Belongs to the class. (Using static)
+
+	* Rules to define variables
+👉 No number at start
+👉 No spaces
+👉 No keywords
+👉 Case-sensitive
+
+
+	* Variable ex: --
+		Class Lv {
+			String name = "cdac";
+			int year = 2026;
+			void display(){
+				int age  = 15;// Local variable
+				System.out.println(age);
+				}
+		public static void main(string args[]){
+
+			Lv.display();
+			Lv obj1 = new Lv();
+			System.out.println(obj1.name);
+			}
+	}
+
+
+
+Operators : An operator is a symbol used to perform an operation on values.
+ 
+ Types of operators:-
+Arithmetic → +, -, *, /, %
+Relational → >, <, ==, !=
+Logical → &&, ||, !
+Assignment → =, +=, -=
+Unary → ++, --, !
+
+
+
+
+	
