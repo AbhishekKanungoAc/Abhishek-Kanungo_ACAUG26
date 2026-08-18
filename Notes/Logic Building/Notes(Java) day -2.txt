@@ -77,10 +77,10 @@ Variable : int age = 22;
 	- Static Variable → Belongs to the class. (Using static)
 
 	* Rules to define variables
-👉 No number at start
-👉 No spaces
-👉 No keywords
-👉 Case-sensitive
+ No number at start
+ No spaces
+ No keywords
+ Case-sensitive
 
 
 	* Variable ex: --
