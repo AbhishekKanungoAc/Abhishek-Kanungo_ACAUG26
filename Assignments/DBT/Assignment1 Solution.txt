@@ -1,0 +1,131 @@
+1. Define a schema for a Library Management System with the following entities:
+
+Create database LMS;
+use lms;
+
+2. Write the SQL command to create a table Authors with the following fields:
+   - author_id (Primary Key, INT)
+   - name (VARCHAR(100))
+   - country (VARCHAR(50))
+
+create table Authors (
+author_id int primary key,
+name varchar(100),
+country varchar(50)
+);
+
+3. Write the SQL command to create a table Books with the following fields:
+   - book_id (Primary Key, INT)
+   - title (VARCHAR(150))
+   - author_id (Foreign Key referencing Authors)
+   - published_year (YEAR)
+   - available_copies (INT)
+
+create table Books (
+book_id int primary key,
+title varchar(150),
+author_id int,
+published_year year,
+available_copies int,
+foreign key(author_id)
+references Authors(author_id));
+
+4. Write the SQL command to create a table Members with:
+   - member_id (Primary Key, INT)
+   - name (VARCHAR(100))
+   - email (VARCHAR(100), unique)
+   - phone (VARCHAR(15))
+
+create table Members (
+member_id int primary key,
+name varchar(100),
+email varchar(100) unique,
+phone varchar(15)
+);
+
+
+5. Write the SQL command to create a table Borrow_Records with:
+   - record_id (Primary Key, INT)
+   - member_id (Foreign Key referencing Members)
+   - book_id (Foreign Key referencing Books)
+   - borrow_date (DATE)
+   - return_date (DATE)
+
+
+create table Borrow_Records (
+record_id int primary key,
+member_id int,
+book_id int,
+borrow_date date,
+return_date date,
+foreign key(member_id) references Members(member_id),
+foreign key(book_id) references Books(book_id)
+);
+
+6. Modify the Books table to add a column genre of type VARCHAR(50).
+
+alter table Books add gener varchar(50);
+
+
+7. Write the SQL command to drop the Borrow_Records table.
+
+drop table borrow_records;
+
+8. Insert 3 records into the Authors table.
+
+insert into authors(author_id, name, country) values
+(101, 'Abhishek', 'India'),
+(102, 'Bhavna', 'Dubai'),
+(103, 'Manoj', 'Kazakisthan');
+
+
+9. Insert 5 books into the Books table.
+
+insert into books(book_id, title, author_id, published_year, available_copies) values
+(1, 'Cpp', 101, '2026', 5),
+(2, 'Java', 102, '2025', 3),
+(3, 'ADS', 102, '2021', 4),
+(4, 'DBT', 103, '2022', 6),
+(5, 'Apty', 101, '2024', 10);
+
+
+10. Insert 3 members into the Members table.
+
+insert into members(member_id, name, email, phone) values
+(201, 'abc', 'abc@gmail.com', '2031564824'),
+(202, 'def', 'def@gmail.com', '2031521525'),
+(203, 'ghi', 'ghi@gmail.com', '2032648926');
+
+11. Display All Tables
+select * from authors; select * from books; select * from members;
+
+12. Write an SQL query to select all books where published_year is after 2022;
+select title, published_year from books where published_year>2022;
+
+13.Write a SQL query to create a foreign key & primary key relationship between two tables.
+ALTER TABLE Books
+    -> ADD CONSTRAINT fk_authorId
+    -> FOREIGN KEY (author_id)
+    -> REFERENCES Authors(author_id);
+
+14. Delete a record from Members where member_id = 103.
+
+delete from members
+    -> where member_id =103;
+
+15. Update a Book name record from Book table  with id = 1
+
+update books
+    -> set title = 'adv dbt'
+    -> where book_id = 1;
+
+16. Write an SQL query to list all books along with their authors' names.
+select b.book_id, b.title, a.name as author_name
+from books b
+join authors a
+on b.author_id = a.author_id;  
+
+17. Write an SQL query to delete all books from the Books table where the published_year is before 2022.
+
+delete from books
+where published_year < 2022;
