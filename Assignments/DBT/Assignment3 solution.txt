@@ -1,0 +1,197 @@
+1. Write a query to calculate the total salary of all employees.
+
+select sum(salary) 
+from employees;
+
+2. Write a query to find the average salary of employees in each department using GROUP BY.
+
+select d.departName , avg(e.salary) as avg_sal
+from departments d
+join employees e
+on d.departId = e.departId
+group by d.departName, d.departId;
+
+
+
+3. Write a query to count the total number of employees in each department.
+
+select d.departName , count(e.empId) as totalEmpInEachDept
+from departments d
+join employees e
+on d.departId = e.departId
+group by d.departName, d.departId;
+
+
+4. Write a query to display departments having more than 5 employees using HAVING clause.
+
+select d.departName , count(e.empId) as totalEmpInEachDept
+from departments d
+join employees e
+on d.departId = e.departId
+group by d.departName, d.departId
+having count(e.empId) > 2;
+
+
+5. Write a query to list distinct department locations from the Dept table.
+
+select distinct location 
+from departments;
+
+
+6. Write a query to display the highest salary among all employees.  Write a query to display all total number of  employee in table.
+
+select empName , max(salary), count(empId) as totalEmpNum
+from employees;
+
+select count(empId) as totalEmpNum
+from employees;
+
+7. Write a query to find employees whose name starts with 'A' using LIKE operator.
+
+select empName 
+from employees
+where empName like 'A%';
+
+8. Write a query to find employees whose name ends with 'n' using LIKE operator.
+
+select empName 
+from employees
+where empName like '%n';
+
+
+9. Write a query to find employees whose name contains 'ra' using LIKE operator.
+
+select empName 
+from employees
+where empName like '%ra%';
+
+10. Write a query to display all employees sorted by their Salary in descending order.
+
+select empName, salary 
+from employees
+order by salary desc;
+
+
+select e.empName, e.salary, d.departName
+from employees e
+join departments d
+on e.departId = d.departId
+order by e.salary desc, d.departName;
+
+11. Write a query to display all employees sorted by DeptID ascending and then Salary descending.
+
+
+select e.empName, e.salary, d.departId
+from employees e
+join departments d
+on e.departId = d.departId
+order by d.departId asc, e.salary desc;
+
+12. Write a query to find employees whose salary is between 30,000 and 60,000.
+
+select empName, salary
+from employees
+where salary between 30000 and 60000;
+
+13. Write a query to display all employees whose DeptID is in (10, 20, 30).
+
+select e.empName , d.departId
+from employees e
+join departments d
+on e.departId = d.departId
+where d.departId in(1,2);
+
+14. Write a query to display Min salary of employee .
+
+select min(salary) from employees;
+
+select e.empName, e.empId, d.departName, e.salary
+from employees e
+join departments d
+on e.departId = d.departId
+where e.salary = (select min(salary) from employees);
+
+15. Write a query to display employees whose JoiningDate is between '2020-01-01' and '2021-12-31'.
+
+
+select e.empName, p.startDate
+from employees e
+join projects p
+on e.empId = p.empId
+where p.startDate between '2020-01-01' and '2021-12-31';
+
+
+
+16. Write a query to display employees whose Salary is NULL.
+
+select empName, salary
+from employees 
+where salary is null;
+
+
+17. Write a query to display employees whose Salary is NOT NULL.
+
+select empName, salary
+from employees
+where salary is not null;
+
+18. Write a query to calculate the total salary per department, but only for departments where total salary is greater than 1,00,000 (use HAVING).
+
+select sum(e.salary), d.departName
+from employees e
+join departments d
+on e.departId = d.departId
+group by d.departName
+having sum(e.salary)>75000;
+
+
+19. Write a query to display all distinct employee names.
+
+select distinct e.empName, d.departName
+from employees e
+join departments d
+on e.departid =d.departId;
+
+20. Write a query to count the number of departments having the same location.
+
+
+
+select location , count(*)
+from departments
+group by location
+having count(*) >1;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
